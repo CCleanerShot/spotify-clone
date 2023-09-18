@@ -4,6 +4,7 @@ import React from "react";
 import useAuthModal from "@/hooks/useAuthModal";
 import useUser from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
+import useOnPlay from "@/hooks/useOnPlay";
 import { Song } from "@/types";
 
 import { TbPlaylist } from "react-icons/tb";
@@ -17,6 +18,8 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
 	const authModal = useAuthModal();
 	const uploadModal = useUploadModal();
 	const { user, subscription } = useUser();
+
+	const onPlay = useOnPlay(songs);
 
 	const onClick = () => {
 		if (!user) {
@@ -39,7 +42,7 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
 			<div className="flex flex-col gap-y-2 mt-4 px-3">
 				{songs.map((song) => (
 					<div>
-						<MediaItem onClick={() => {}} key={song.id} data={song} />
+						<MediaItem onClick={(id: string) => onPlay(id)} key={song.id} data={song} />
 					</div>
 				))}
 			</div>
