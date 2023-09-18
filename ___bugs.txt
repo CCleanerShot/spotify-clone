@@ -1,0 +1,1 @@
+animation for dialog from signin/login clicks stop working after the first time (no more animations)
