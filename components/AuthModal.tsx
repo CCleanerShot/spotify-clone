@@ -34,6 +34,7 @@ const AuthModal = () => {
 				magicLink
 				providers={["github"]}
 				supabaseClient={supabaseClient}
+				redirectTo=""
 				appearance={{
 					theme: ThemeSupa,
 					variables: {
